@@ -37,5 +37,5 @@ Assuming you have `graph_beg.txt`, `graph_csr.txt`, and `graph_weights.txt` as y
 ----
 Major Contributors
 ----
-Vatsal Taylor
+Vatsal Tailor
 
