@@ -143,3 +143,22 @@ void graph<file_vert_t, file_index_t, file_weight_t, new_vert_t, new_index_t, ne
     delete[] visited;
 }
 
+void graph<file_vert_t, file_index_t, file_weight_t, new_vert_t, new_index_t, new_weight_t>::printBFSPath()
+{
+    // Check if BFS path is empty
+    if(bfsPath.empty())
+    {
+        std::cout << "BFS traversal path is empty!" << std::endl;
+        return;
+    }
+
+    // Print BFS traversal path
+    for(new_index_t i = 0; i < bfsPath.size(); i++)
+    {
+        std::cout << bfsPath[i];
+        if(i < bfsPath.size() - 1)
+            std::cout << " -> ";
+    }
+    std::cout << std::endl;
+}
+
