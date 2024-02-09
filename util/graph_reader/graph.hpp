@@ -103,3 +103,43 @@ new_vert_t,new_index_t,new_weight_t>
 		<<edge_count<<" edges "<<wtime()-tm<<" second(s)\n";
 }
 
+template<
+typename file_vert_t, typename file_index_t, typename file_weight_t,
+typename new_vert_t, typename new_index_t, typename new_weight_t>
+void graph<file_vert_t, file_index_t, file_weight_t, new_vert_t, new_index_t, new_weight_t>::BFS(new_vert_t source)
+{
+    // Array to keep track of visited vertices
+    bool *visited = new bool[vert_count];
+    for(new_index_t i = 0; i < vert_count; i++)
+        visited[i] = false;
+
+    // Queue for BFS
+    std::queue<new_vert_t> queue;
+
+    // Visit the source node
+    visited[source] = true;
+    queue.push(source);
+
+    while(!queue.empty())
+    {
+        // Dequeue a vertex from the queue
+        new_vert_t u = queue.front();
+        queue.pop();
+        std::cout << u << " ";
+
+        // Get all adjacent vertices of the dequeued vertex u
+        // If an adjacent vertex has not been visited, then mark it visited and enqueue it
+        for(new_index_t i = beg_pos[u]; i < beg_pos[u+1]; i++)
+        {
+            new_vert_t v = csr[i];
+            if(!visited[v])
+            {
+                visited[v] = true;
+                queue.push(v);
+            }
+        }
+    }
+
+    delete[] visited;
+}
+
