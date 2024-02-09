@@ -14,7 +14,7 @@ inline off_t fsize(const char *filename) {
 		return st.st_size;
 	return -1; 
 }
-
+void BFS(new_vert_t source);
 template<
 typename file_vert_t, typename file_index_t, typename file_weight_t,
 typename new_vert_t, typename new_index_t, typename new_weight_t>
