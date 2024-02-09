@@ -32,7 +32,7 @@ Assuming you have `graph_beg.txt`, `graph_csr.txt`, and `graph_weights.txt` as y
 
 ```bash
 ./graph_bfs graph_beg.txt graph_csr.txt graph_weights.txt
-
+```
 
 ----
 Major Contributors
