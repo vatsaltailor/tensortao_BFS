@@ -17,7 +17,17 @@ int main(int args, char **argv)
     graph<long, long, int, long, long, char> *ginst = new graph<long, long, int, long, long, char>(beg_file, csr_file, weight_file);
     
     ginst->BFS(0);
-
+    
+    for(int i = 0; i < ginst->vert_count+1; i++)
+    {
+       int beg = ginst->beg_pos[i];
+       int end = ginst->beg_pos[i+1];
+       std::cout<<i<<"'s neighor list: ";
+       for(int j = beg; j < end; j++)
+           std::cout<<ginst->csr[j]<<" ";
+       std::cout<<"\n";
+    } 
+    
     delete ginst;
 
     return 0;   
