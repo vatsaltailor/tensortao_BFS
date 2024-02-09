@@ -1,48 +1,41 @@
-# TensorTao: The Tao of Customized Tensors for High-Performance Data Analytics
+# Graph Processing with BFS
 
-Welcome to Rutgers HPDA group's GitHub repository, where we're pushing the boundaries of data analytics with our advanced tensor operation customizations. Our work, encapsulated in numerous research papers, has led to the development of groundbreaking methodologies that significantly outperform established libraries like cuBLAS, CUTLASS, DGL, Gunrock and SuperLU. At the heart of our innovations is **optimizing special tensor operations** for accelerated data processing, ensuring faster, more efficient computations. Whether you're a researcher, data scientist, or enthusiast in the field of high-performance computing, our repository offers a treasure trove of resources and tools that stand at the forefront of computational efficiency. Dive in to explore our contributions and join us in shaping the future of data analytics.
+This repository contains a C++ implementation of graph processing using the Breadth-First Search (BFS) algorithm. BFS is a fundamental graph traversal algorithm that explores vertices in the order of their distance from the source node, layer by layer. It's widely used in various applications such as finding the shortest path in unweighted graphs, connectivity checking, and level-order traversal of trees.
 
-We are still updating this repository, stay tuned!
+## Features
+
+- **Graph Representation**: Utilizes an efficient graph representation using CSR (Compressed Sparse Row) format to store vertices and edges.
+- **BFS Implementation**: Implements the BFS algorithm to traverse the graph from a given source vertex, exploring all connected components.
+- **Single Threaded**: The current implementation is single-threaded, suitable for educational and straightforward graph processing tasks.
+
+## How to Run
+
+To compile and run the BFS implementation, follow these steps:
+
+1. **Compilation**: Use the following command to compile the project. Ensure you have a C++ compiler installed.
+
+    ```bash
+    g++ -o graph_bfs main.cpp -std=c++11
+    ```
+
+2. **Running the Program**: The executable expects three input files representing the graph: a beginning file (beg), a CSR file, and a weights file. Run the program using the command below:
+
+    ```bash
+    ./graph_bfs <beg_file> <csr_file> <weight_file>
+    ```
+
+    Replace `<beg_file>`, `<csr_file>`, and `<weight_file>` with your actual file paths.
+
+### Example
+
+Assuming you have `graph_beg.txt`, `graph_csr.txt`, and `graph_weights.txt` as your input files, run:
+
+```bash
+./graph_bfs graph_beg.txt graph_csr.txt graph_weights.txt
+
 
 ----
 Major Contributors
 ----
-Anil Gaihre
+Vatsal Taylor
 
-Santosh Pandey
-
-Shiyang Chen
-
-Lang Zhu
-
-Haoshen Yang
-
-Pinhuan Wang
-
-Jiankun Jiang
-
-----
-Publications
-----
-
-[SC  '15] Enterprise: Breadth-First Graph Traversal on GPUs [[PDF](http://personal.stevens.edu/~hliu77/docs/sc15.pdf)]
-
-[FAST'17] Graphene: Fine-Grained IO Management for Graph Computing [[PDF](http://personal.stevens.edu/~hliu77/docs/fast17.pdf)]
-
-[HPDC'19] XBFS: eXploring Runtime Optimizations for Breadth-First Search on GPUs [[PDF](http://personal.stevens.edu/~hliu77/docs/hpdc19.pdf)]
-
-[DAC '19] Dr. BFS: Data Centric Breadth-First Search on FPGAs [[PDF](http://personal.stevens.edu/~hliu77/docs/dac19.pdf)]
-
-[USENIX ATC '19] SIMD-X: Programming and Processing of Graph Algorithms on GPUs [[PDF](http://personal.stevens.edu/~hliu77/docs/usenix-atc19.pdf)]
-
-[SC '20] C-SAW: a framework for graph sampling and random walk on GPUs [[PDF](https://personal.stevens.edu/~hliu77/docs/SC20.pdf)]
-
-[TPDS '21] GSOFA: Scalable Sparse Symbolic LU Factorization on GPUs [[PDF](https://personal.stevens.edu/~hliu77/docs/tpds21b.pdf)]
-
-[TPDS '21] Trust: Triangle Counting Reloaded on GPUs[[PDF](https://asherliu.github.io/docs/tpds21.pdf)]
-
-[SC '21] Dr. Top-k: Delegate-Centric Top-k on GPUs[[PDF](https://asherliu.github.io/docs/sc21b.pdf)]
-
-[SC '21] E.T.: Re-Thinking Self-Attention for Transformer Models on GPUs[[PDF](https://asherliu.github.io/docs/sc21a.pdf)]
-
-[SC '23] Tango: Re-Thinking Quantization for Graph Neural Network Training on GPUs [[PDF](https://asherliu.github.io/)]
